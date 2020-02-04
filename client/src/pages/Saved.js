@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 
 class Search extends Component {
@@ -10,6 +9,7 @@ class Search extends Component {
 
     saveBook = (bookId) => {
         API.deleteBook(bookId);
+        window.location = "/saved";
     }
 
     componentDidMount() {
@@ -27,7 +27,7 @@ class Search extends Component {
     render() {
         return (
             <div>
-                <SearchBar searchBook={this.searchBook} />
+                <h3>Your Saved Books</h3>
                 <div className="card-columns">
                     {this.state.books.map(book => {
                         return (
