@@ -4,26 +4,19 @@ module.exports = (app) => {
   // -------- SEARCH PAGE API ENDPOINTS -------- //
 
   // Save a book
-  app.post("api/books", (req, res) => {
+  app.post("/api/books", (req, res) => {
     console.log("Saving book: ");
     console.log(req.body);
-    let {
-      bookId,
-      title,
-      authors,
-      description,
-      image,
-      link
-    } = req.body;
+    let book = {
+      bookId: req.body.bookId,
+      title: req.body.title,
+      author: req.body.author[0],
+      description: req.body.description,
+      image: req.body.image,
+      link: req.body.link
+    };
 
-    db.Book.create({
-      bookId,
-      title,
-      authors,
-      description,
-      image,
-      link
-    })
+    db.Book.create(book)
       .then(result => {
         res.status(200).json(result);
       })
@@ -51,11 +44,11 @@ module.exports = (app) => {
     db.book.deleteOne(
       { bookId: req.params.id }
     )
-    .then(result => {
-      res.status(200).json(result)
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
+      .then(result => {
+        res.status(200).json(result)
+      })
+      .catch(err => {
+        res.status(400).json(err);
+      });
   });
 }
