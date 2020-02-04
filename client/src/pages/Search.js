@@ -8,9 +8,8 @@ class Search extends Component {
         books: []
     }
 
-    saveBook = (event) => {
-        event.preventDefault();
-        API.saveBook();
+    saveBook = (bookInfo) => {
+        API.saveBook(bookInfo);
     }
 
     searchBook = (query) => {
@@ -27,7 +26,6 @@ class Search extends Component {
                         link: result.volumeInfo.infoLink
                     }
                     stateBooks.push(book);
-                    console.log(book);
                 });
                 this.setState(
                     {
@@ -48,7 +46,7 @@ class Search extends Component {
                 <div className="card-columns">
                     {this.state.books.map(book => {
                         return (
-                            <Card  key={book.bookId} {...book} />
+                            <Card  key={book.bookId} save={this.saveBook} {...book} />
                         )
                     })}
                 </div>
