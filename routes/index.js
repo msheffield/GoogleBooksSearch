@@ -40,9 +40,12 @@ module.exports = (app) => {
   });
 
   // Delete a book
-  app.get("/api/books/:id", (req, res) => {
-    db.book.deleteOne(
-      { bookId: req.params.id }
+  app.delete("/api/books/:id", (req, res) => {
+    let id = req.params.id;
+    console.log(req.params.id);
+    console.log("deleting book with id " + req.params.id);
+    db.Book.deleteOne(
+      { bookId: id }
     )
       .then(result => {
         res.status(200).json(result)
