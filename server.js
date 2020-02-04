@@ -1,8 +1,7 @@
 const express = require("express");
+const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-
-const routes = require("./routes");
 const mongoose = require("mongoose");
 
 // Define middleware here
@@ -22,7 +21,12 @@ app.get("*", (req, res) => {
 });
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://user1:fr3sh3ggs@ds233258.mlab.com:33258/heroku_kcdf2kr9")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user1:fr3sh3ggs@ds233258.mlab.com:33258/heroku_kcdf2kr9", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+mongoose.set("useCreateIndex", true);
+
 
 // Start the server
 app.listen(PORT, () => {
