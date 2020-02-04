@@ -43,6 +43,7 @@ class Search extends Component {
         return (
             <div>
                 <SearchBar searchBook={this.searchBook}/>
+                <hr></hr>
                 <div className="card-columns">
                     {this.state.books.map(book => {
                         return (

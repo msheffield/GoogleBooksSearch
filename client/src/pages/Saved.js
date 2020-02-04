@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
 
+const titleStyle = {
+    'text-align': 'center'
+}
+
 class Search extends Component {
     state = {
         books: []
@@ -27,7 +31,8 @@ class Search extends Component {
     render() {
         return (
             <div>
-                <h3>Your Saved Books</h3>
+                <h3 style={titleStyle}>Your Saved Books</h3>
+                <hr></hr>
                 <div className="card-columns">
                     {this.state.books.map(book => {
                         return (

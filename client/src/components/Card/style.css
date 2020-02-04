@@ -1,0 +1,17 @@
+.card-img-top {
+  height: 200px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-footer {
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
