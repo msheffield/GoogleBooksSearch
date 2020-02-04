@@ -8,7 +8,7 @@ class Search extends Component {
         books: []
     }
 
-    saveBook = (bookInfo) => {
+    onClickFunc = (bookInfo) => {
         API.saveBook(bookInfo);
     }
 
@@ -46,7 +46,7 @@ class Search extends Component {
                 <div className="card-columns">
                     {this.state.books.map(book => {
                         return (
-                            <Card  key={book.bookId} save={this.saveBook} {...book} />
+                            <Card  key={book.bookId} onClickFunc={this.onClickFunc} text="Save" {...book} />
                         )
                     })}
                 </div>

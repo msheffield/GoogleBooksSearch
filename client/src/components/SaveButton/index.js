@@ -18,10 +18,10 @@ class SaveButton extends Component {
                             image: this.props.image,
                             link: this.props.link
                         }
-                        this.props.save(bookInfo);
+                        this.props.onClickFunc(bookInfo);
                     }
                     }>
-                    Save
+                    {this.props.text}
             </button>
             </div>
         )
