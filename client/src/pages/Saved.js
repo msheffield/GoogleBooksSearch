@@ -8,7 +8,7 @@ class Search extends Component {
         books: []
     }
 
-    removeBook = (bookId) => {
+    saveBook = (bookId) => {
         API.deleteBook(bookId);
     }
 
@@ -31,7 +31,7 @@ class Search extends Component {
                 <div className="card-columns">
                     {this.state.books.map(book => {
                         return (
-                            <Card key={book.bookId} save={this.deleteBook} {...book} />
+                            <Card key={book.bookId} save={this.saveBook} {...book} />
                         )
                     })}
                 </div>
